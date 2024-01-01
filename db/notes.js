@@ -1,7 +1,6 @@
 const util = require('util');
 const fs = require('fs');
 
-const uuid = require('uuid')
 
 const readAsync = util.promisify(fs.readFile);
 const writeAsync = util.promisify(fs.writeFile);
@@ -36,7 +35,7 @@ class Save {
             throw new Error('Neither the title or text fields can be blank');
         }
 
-        const newNote = { title, text, id: uuid() };
+    const newNote = { title, text, };
 
         return this.getNotes()
         .then((notes) => [...notes, newNote])
